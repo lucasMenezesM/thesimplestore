@@ -1,1 +1,1 @@
-### React application built using the fake store api
+### Single Page Application built with React using the fake store api
