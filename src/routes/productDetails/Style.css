@@ -1,0 +1,33 @@
+.product-details-container {
+  /* height: 560px; */
+  width: 1024px;
+  margin: 90px auto;
+}
+
+.product-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 1024px;
+  padding: 50px;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 50px auto 10px auto;
+  gap: 15px;
+}
+
+.product-box img {
+  height: 250px;
+}
+
+.product-details {
+  display: grid;
+  grid-template-rows: repeat(3, auto) auto; /* Quatro linhas, sendo a última dividida em 3 colunas */
+  grid-template-columns: 1fr; /* Uma coluna para todas as linhas */
+  gap: 10px; /* Ajuste conforme necessário */
+}
+
+.buttons-product-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /* Três colunas na última linha */
+  gap: 25px;
+}

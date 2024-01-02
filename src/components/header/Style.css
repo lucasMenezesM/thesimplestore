@@ -1,0 +1,28 @@
+header {
+  padding: 10px 0;
+}
+
+.logo-header {
+  display: flex;
+  align-content: center;
+  font-size: 20px;
+}
+
+header .container-header {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.link-header {
+  margin: 0 10px;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.svg-header {
+}
