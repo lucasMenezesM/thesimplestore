@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import TextLimiter from "../../components/TextLimiter";
 import "./Style.css";
 import { useGetByCategory } from "../../hooks/useGetByCategory";
 import CategorySection from "../Home/CategorySection/CategorySection";

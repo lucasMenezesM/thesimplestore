@@ -1,0 +1,76 @@
+.error-container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  /* gap: 20px; */
+}
+
+.error-box img {
+  width: 500px;
+  border-radius: 10px;
+}
+
+.error-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 70px;
+  /* width: 70%; */
+  background-color: #212529;
+  border-radius: 10px;
+  color: white;
+  margin: 10px;
+  text-align: center;
+}
+
+.error-message {
+  padding: 30px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  /* width: 70%; */
+  /* height: 300px; */
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message h1 {
+  font-size: 80px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.error-message p {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .error-box img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 510px) {
+  .error-message h1 {
+    font-size: 50px;
+  }
+
+  .error-box {
+    padding: 20px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .error-message h1 {
+    font-size: 40px;
+  }
+
+  .error-message p {
+    font-size: 20px;
+  }
+}
