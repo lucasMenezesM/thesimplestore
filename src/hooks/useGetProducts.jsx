@@ -23,5 +23,5 @@ export function useGetProducts() {
     getProducts();
   }, []);
 
-  return { products, isLoading };
+  return [products, isLoading];
 }

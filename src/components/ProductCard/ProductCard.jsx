@@ -5,10 +5,10 @@ import { TbListDetails } from "react-icons/tb";
 
 import { Link } from "react-router-dom";
 import { useState } from "react";
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, className = "" }) {
   const [showModel, setShowModel] = useState(false);
   return (
-    <div className="product-card">
+    <div className={`product-card ${className}`}>
       {showModel && <ProductModel product={product} />}
 
       <img src={product.image} alt={`${product.title}`} />
