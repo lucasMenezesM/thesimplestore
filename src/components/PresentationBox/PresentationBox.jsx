@@ -1,4 +1,4 @@
-import "./Style.css";
+import "./PresentationBox.css";
 export default function PresentationBox({ title, description, imgUrl }) {
   return (
     <div className="page-description">

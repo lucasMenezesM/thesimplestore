@@ -26,3 +26,14 @@ footer .container-footer {
 .credits p {
   margin: 8px 0;
 }
+
+@media screen and (max-width: 768px) {
+  .container-footer div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    width: calc(100%);
+  }
+}

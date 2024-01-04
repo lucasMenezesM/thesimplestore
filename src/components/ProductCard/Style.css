@@ -64,3 +64,17 @@
   margin-top: 15px;
   font-style: italic;
 }
+
+@media screen and (max-width: 800px) {
+  .product-card {
+    width: calc((100% / 2) - 20px);
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 472px) {
+  .product-card {
+    width: calc((100%) - 50px);
+    margin: 10px;
+  }
+}

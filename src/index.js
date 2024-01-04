@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
@@ -8,6 +8,7 @@ import ProductsPage from "./routes/productsPage/ProcutsPage";
 import Error from "./routes/Error/Error";
 import ProductDetails from "./routes/productDetails/ProductDetails";
 import Contact from "./routes/contact/Contact";
+import About from "./routes/about/About";
 import {
   RouterProvider,
   createBrowserRouter,
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "product/:id",
         element: <ProductDetails />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: "/",

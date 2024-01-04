@@ -1,9 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Style.css";
+import "./Header.css";
+
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+  // const [search, setSearch] = useState("");
+  // const handleSearch = (e) => {
+  //   // Navega para a nova rota
+  //   setSearch(e.target.value);
+  //   navigate("/products");
+  // };
   return (
     <header>
       <div className="container-header">
@@ -19,14 +27,6 @@ export default function Header() {
           </svg>
           <span>The Simple Store</span>
         </div>
-        <div className="search-header">
-          <input
-            type="text"
-            placeholder="Search for some product"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
         <nav className="links-store">
           <Link className="link-header" to={"/"}>
             Home
@@ -37,7 +37,9 @@ export default function Header() {
           <Link className="link-header" to={"/contact"}>
             Contact
           </Link>
-          <Link className="link-header">About</Link>
+          <Link className="link-header" to={"/about"}>
+            About
+          </Link>
         </nav>
       </div>
     </header>

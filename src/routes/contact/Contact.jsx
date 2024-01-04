@@ -1,9 +1,27 @@
 import Banner from "../../components/Banner/Banner";
-import "./Style.css";
+import Button from "../../components/Button/Button";
 import { GrContact } from "react-icons/gr";
 import { FaWalking } from "react-icons/fa";
+import "./Style.css";
+import { useState } from "react";
 
 export default function Contact() {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [email, setEmail] = useState("");
+  const [userText, setUserText] = useState("");
+  const [inputError, setInputError] = useState("");
+
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    if (!name) setInputError("Please, fill your name");
+    // if (!phone) setInputError("Please, fill your phone field");
+
+    if (inputError.length > 0) return;
+
+    alert("Message Sent Successfully");
+  }
+
   return (
     <>
       <Banner
@@ -32,10 +50,41 @@ export default function Contact() {
           </div>
         </div>
 
+        <div className="contact-support">
+          <h3>Have some doubt or suggestion? Send us a message!</h3>
+          <div className="container">
+            <div className="contact-form">
+              <form onSubmit={(e) => handleFormSubmit(e)}>
+                <label>Name:</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
+                <label>Email:</label>
+                <input
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <label>What's in your mind?</label>
+                <textarea
+                  value={userText}
+                  onChange={(e) => setUserText(e.target.value)}
+                ></textarea>
+                <label></label>
+                <Button bgColor="white" textColor="black">
+                  Send
+                </Button>
+              </form>
+            </div>
+            <img src="/assets/costumer-support.png" alt="support" />
+          </div>
+        </div>
+
         <h3>
           Come visit us: <FaWalking />
         </h3>
-
         <div className="map">
           <iframe
             className="storeMap"

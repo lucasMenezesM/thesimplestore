@@ -32,19 +32,31 @@ export default function Home() {
         />
 
         <CategorySection title={"Women's Clothing"}>
-          <ProductList products={womenClosthingProducts} />
+          <ProductList
+            products={womenClosthingProducts}
+            className="productCard-home"
+          />
         </CategorySection>
 
         <CategorySection title={"Jewelery"}>
-          <ProductList products={jeweleryProducts} />
+          <ProductList
+            products={jeweleryProducts}
+            className="productCard-home"
+          />
         </CategorySection>
 
         <CategorySection title={"Men's Clothing"}>
-          <ProductList products={menClosthingProducts} />
+          <ProductList
+            products={menClosthingProducts}
+            className="productCard-home"
+          />
         </CategorySection>
 
         <CategorySection title={"Eletronics products"}>
-          <ProductList products={eletronicProducts} />
+          <ProductList
+            products={eletronicProducts}
+            className="productCard-home"
+          />
         </CategorySection>
       </div>
     </>

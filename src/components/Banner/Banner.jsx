@@ -13,6 +13,7 @@ export default function Banner({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "column",
+    textAlign: "center",
   };
 
   const titleStyle = {
