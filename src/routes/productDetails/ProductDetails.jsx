@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Style.css";
 import { useGetByCategory } from "../../hooks/useGetByCategory";
-import CategorySection from "../Home/CategorySection/CategorySection";
+import CategorySection from "../Home/Components/CategorySection";
 import ProductList from "../../components/ProductList/ProductList";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
   const [similarProducts, setSimilarProducts] = useState([]);
 
@@ -26,14 +27,16 @@ export default function ProductDetails() {
           const data = await res.json();
           setProduct(data);
         } catch (err) {
+          setError(err.message);
           console.log(err.message);
+          console.log(error);
         } finally {
           setIsLoading(false);
         }
       }
       getProduct();
     },
-    [id]
+    [id, error]
   );
 
   useEffect(
@@ -45,13 +48,15 @@ export default function ProductDetails() {
     [product, otherProducts, id, isLoading]
   );
 
-  console.log(similarProducts);
+  // console.log(similarProducts);
 
   return (
     <div className="product-details-container">
       <div className="product-box">
         {isLoading ? (
           <h2>Loading...</h2>
+        ) : error ? (
+          <h2>{error}</h2>
         ) : (
           <>
             <img src={product.image} alt={product.title} />

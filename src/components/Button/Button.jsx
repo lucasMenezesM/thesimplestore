@@ -4,11 +4,12 @@ export default function Button({
   width = "",
   children,
   className = "",
-  onClick = "",
+  onClick = null,
+  padding = "3px 5px",
 }) {
   const btnStyle = {
     width,
-    padding: "3px 5px",
+    padding,
     color: textColor,
     backgroundColor: bgColor,
     borderRadius: "5px",

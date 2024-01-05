@@ -1,11 +1,19 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
+import { useLocation } from "react-router-dom";
 
 import { useNavigate } from "react-router-dom";
 
 export default function Header() {
-  const navigate = useNavigate();
+  const [isSelected, SetIsSelected] = useState("home");
+
+  const location = useLocation().pathname;
+
+  function handleSelectLink(link) {
+    SetIsSelected(location);
+  }
+  // const navigate = useNavigate();
   // const [search, setSearch] = useState("");
   // const handleSearch = (e) => {
   //   // Navega para a nova rota
@@ -28,16 +36,32 @@ export default function Header() {
           <span>The Simple Store</span>
         </div>
         <nav className="links-store">
-          <Link className="link-header" to={"/"}>
+          <Link
+            onClick={() => handleSelectLink("home")}
+            className={`link-header ${location === "/home" && "selected"}`}
+            to={"/"}
+          >
             Home
           </Link>
-          <Link className="link-header" to={"/products"}>
+          <Link
+            onClick={() => handleSelectLink("products")}
+            className={`link-header ${location === "/products" && "selected"}`}
+            to={"/products"}
+          >
             Products
           </Link>
-          <Link className="link-header" to={"/contact"}>
+          <Link
+            onClick={() => handleSelectLink("contact")}
+            className={`link-header ${location === "/contact" && "selected"}`}
+            to={"/contact"}
+          >
             Contact
           </Link>
-          <Link className="link-header" to={"/about"}>
+          <Link
+            onClick={() => handleSelectLink("about")}
+            className={`link-header ${location === "/about" && "selected"}`}
+            to={"/about"}
+          >
             About
           </Link>
         </nav>

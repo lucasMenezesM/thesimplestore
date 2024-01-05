@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export function useGetByCategory(category) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(
     function () {
@@ -14,6 +15,7 @@ export function useGetByCategory(category) {
           const data = await res.json();
           setProducts(data);
         } catch (err) {
+          setError(err.message);
           console.log(err.message);
         } finally {
           setIsLoading(false);
@@ -25,5 +27,5 @@ export function useGetByCategory(category) {
     [category]
   );
 
-  return [products, isLoading];
+  return [products, isLoading, error];
 }

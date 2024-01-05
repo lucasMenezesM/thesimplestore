@@ -121,6 +121,17 @@ iframe {
   width: 100px;
 }
 
+.contact-form form label {
+  margin-bottom: 2px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.contact-form form span {
+  color: rgb(255, 116, 116);
+}
+
 @media screen and (max-width: 1000px) {
   .contact-details img {
     height: 300px;

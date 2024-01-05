@@ -1,17 +1,16 @@
-import "./Style.css";
-import ProductModel from "../modals/ProductModel";
 import { CiShoppingCart } from "react-icons/ci";
 import { TbListDetails } from "react-icons/tb";
-
 import { Link } from "react-router-dom";
 import { useState } from "react";
+
+import ProductModal from "../modals/ProductModal";
+
+import "./Style.css";
 export default function ProductCard({ product, className = "" }) {
   const [showModel, setShowModel] = useState(false);
 
   return (
     <div className={`product-card ${className}`}>
-      {showModel && <ProductModel product={product} />}
-
       <img src={product.image} alt={`${product.title}`} />
       <div className="product-info">
         <h5>{product.title}</h5>

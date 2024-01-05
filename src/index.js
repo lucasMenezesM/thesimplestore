@@ -3,11 +3,11 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Home from "./routes/Home/Home";
+import Home from "./routes/Home/page/Home";
 import ProductsPage from "./routes/productsPage/ProcutsPage";
 import Error from "./routes/Error/Error";
 import ProductDetails from "./routes/productDetails/ProductDetails";
-import Contact from "./routes/contact/Contact";
+import Contact from "./routes/contact/page/Contact";
 import About from "./routes/about/About";
 import {
   RouterProvider,

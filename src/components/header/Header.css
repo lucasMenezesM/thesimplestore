@@ -25,5 +25,17 @@ header .container-header {
   }
 }
 
+.selected {
+  color: #212529;
+  text-decoration: underline;
+  font-weight: 800;
+}
+
 .svg-header {
+}
+
+@media screen and (max-width: 470px) {
+  .logo-header span {
+    margin-bottom: 20px;
+  }
 }
