@@ -8,7 +8,7 @@ import ProductsPage from "./routes/productsPage/ProcutsPage";
 import Error from "./routes/Error/Error";
 import ProductDetails from "./routes/productDetails/ProductDetails";
 import Contact from "./routes/contact/page/Contact";
-import About from "./routes/about/About";
+import About from "./routes/about/page/About";
 import {
   RouterProvider,
   createBrowserRouter,

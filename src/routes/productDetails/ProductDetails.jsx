@@ -4,6 +4,8 @@ import "./Style.css";
 import { useGetByCategory } from "../../hooks/useGetByCategory";
 import CategorySection from "../Home/Components/CategorySection";
 import ProductList from "../../components/ProductList/ProductList";
+import Button from "../../components/Button/Button";
+import { findAllInRenderedTree } from "react-dom/test-utils";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -12,12 +14,7 @@ export default function ProductDetails() {
   const [error, setError] = useState("");
 
   const [similarProducts, setSimilarProducts] = useState([]);
-
-  const [otherProducts, isLoadingOtherProducts] = useGetByCategory(
-    product.category
-  );
-
-  // const testproducts = otherProducts.filter((item) => item.id !== product.id);
+  const [isLoadingSimilar, setIsLoadingSimilar] = useState(true);
 
   useEffect(
     function () {
@@ -39,16 +36,26 @@ export default function ProductDetails() {
     [id, error]
   );
 
-  useEffect(
-    function () {
-      setSimilarProducts(
-        otherProducts.filter((item) => item.id !== product.id)
-      );
-    },
-    [product, otherProducts, id, isLoading]
-  );
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetch(
+          `https://fakestoreapi.com/products/category/${product.category}`
+        );
+        const data = await res.json();
+        const finalResult = data.filter((curr) => curr.id !== product.id);
+        setSimilarProducts(finalResult);
+      } catch (err) {
+        console.log(err.message);
+      } finally {
+        setIsLoadingSimilar(false);
+      }
+    }
 
-  // console.log(similarProducts);
+    fetchData();
+  }, [product]);
+
+  console.log(similarProducts);
 
   return (
     <div className="product-details-container">
@@ -67,18 +74,21 @@ export default function ProductDetails() {
               <p>{product.description}</p>
 
               <div className="buttons-product-box">
-                <button>Buy this product</button>
-                <button>Buy this product</button>
-                <button>Buy this product</button>
+                <Button>Buy this product</Button>
+                <Button>Buy this product</Button>
+                <Button>Buy this product</Button>
               </div>
             </div>
           </>
         )}
       </div>
-
-      <CategorySection title={"Similar Products"}>
-        <ProductList products={similarProducts} />
-      </CategorySection>
+      {isLoadingSimilar ? (
+        <h2>Loading Products...</h2>
+      ) : (
+        <CategorySection title={"Similar Products"}>
+          <ProductList products={similarProducts} />
+        </CategorySection>
+      )}
     </div>
   );
 }
