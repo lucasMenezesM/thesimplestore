@@ -6,6 +6,7 @@ export default function Button({
   className = "",
   onClick = null,
   padding = "3px 5px",
+  type = "",
 }) {
   const btnStyle = {
     width,
@@ -29,7 +30,12 @@ export default function Button({
   };
 
   return (
-    <button onClick={onClick} className={className} style={btnStyle}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={className}
+      style={btnStyle}
+    >
       {children}
     </button>
   );

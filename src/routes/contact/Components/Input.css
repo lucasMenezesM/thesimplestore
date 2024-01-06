@@ -1,0 +1,22 @@
+.contact-page__input {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-page__input label {
+  margin-top: 10px;
+}
+
+.contact-page__input input,
+.contact-page__input textarea {
+  border-radius: 4px;
+  outline: none;
+  border: none;
+  padding: 8px;
+  font-size: 20px;
+}
+
+.contact-page__error-message {
+  color: red;
+  margin: 5px 0;
+}

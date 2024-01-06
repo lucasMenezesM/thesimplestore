@@ -1,61 +1,43 @@
-import { useState } from "react";
+import { Formik, Form } from "formik";
+import * as Yup from "yup";
 import Button from "../../../components/Button/Button";
+import Input from "./Input";
+
 export default function ConctactForm() {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [userText, setUserText] = useState("");
-  const [inputError, setInputError] = useState("");
-
-  function handleFormSubmit(e) {
-    e.preventDefault();
-    if (!name) return setInputError("name");
-    if (!email) return setInputError("email");
-    if (!userText) return setInputError("userText");
-    if (!phone) return setInputError("phone");
-
-    alert("Message Sent Successfully");
-  }
-
   return (
-    <form onSubmit={(e) => handleFormSubmit(e)}>
-      <label>
-        Name: {inputError === "name" && <span>Fill your name!</span>}
-      </label>
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <label>
-        Email: {inputError === "email" && <span>Enter your email!</span>}{" "}
-      </label>
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <label>
-        Phone: {inputError === "phone" && <span>Enter your phone number!</span>}{" "}
-      </label>
-      <input
-        type="text"
-        value={phone}
-        onChange={(e) => setPhone(e.target.value)}
-      />
-      <label>
-        What's in your mind?{" "}
-        {inputError === "userText" && <span>Enter your message bellow.</span>}
-      </label>
-      <textarea
-        value={userText}
-        onChange={(e) => setUserText(e.target.value)}
-      ></textarea>
-      <label></label>
-      <Button padding="8px" width="140px" bgColor="white" textColor="black">
-        Send
-      </Button>
-      {/* <button>Send</button> */}
-    </form>
+    <Formik
+      initialValues={{ name: "", phone: "", email: "", description: "" }}
+      validationSchema={Yup.object({
+        name: Yup.string().required("This field is required"),
+        phone: Yup.string()
+          .min(13, "Must have at least 13 digits")
+          .required("This field is required"),
+        email: Yup.string()
+          .required("This field is required")
+          .email("Type a valid email"),
+        description: Yup.string()
+          .required("This field is required")
+          .max(200, "Must have a maximum of 200 characters"),
+      })}
+      onSubmit={(values, { setSubmitting }) => {
+        console.log(JSON.stringify(values));
+        setSubmitting(false);
+      }}
+    >
+      <Form>
+        <Input name={"name"} label={"Enter your name"} />
+        <Input name={"email"} label={"Enter your email"} />
+        <Input name={"phone"} label={"Enter your phone"} />
+        <Input
+          name={"description"}
+          label={"Give us all the details"}
+          type={"textarea"}
+          as={"textarea"}
+        />
+        <Button padding="10px" bgColor="white" textColor="black" type="submit">
+          SEND
+        </Button>
+      </Form>
+    </Formik>
   );
 }
