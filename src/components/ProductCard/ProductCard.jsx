@@ -7,7 +7,7 @@ import ProductModal from "../modals/ProductModal";
 
 import "./Style.css";
 export default function ProductCard({ product, className = "" }) {
-  const [showModel, setShowModel] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className={`product-card ${className}`}>
@@ -27,13 +27,16 @@ export default function ProductCard({ product, className = "" }) {
         </button>
         <button
           className="details-btn"
-          onClick={() => setShowModel((curr) => !curr)}
+          onClick={() => setIsModalOpen((curr) => !curr)}
         >
           Show Details{" "}
           <span>
             <TbListDetails size={20} />
           </span>
         </button>
+        {isModalOpen && (
+          <ProductModal product={product} onToggle={setIsModalOpen} />
+        )}
       </div>
     </div>
   );

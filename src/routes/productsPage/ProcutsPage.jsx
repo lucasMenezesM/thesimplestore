@@ -16,7 +16,7 @@ export default function ProductsPage() {
       />
 
       <div className="products-display-section">
-        <h2>Have a look in our products:</h2>
+        <h2 className="products-page__title">Have a look in our products:</h2>
 
         {isLoading ? (
           <h3>Loading Products...</h3>
