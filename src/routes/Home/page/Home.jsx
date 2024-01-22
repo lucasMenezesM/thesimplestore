@@ -1,15 +1,9 @@
 import Banner from "../../../components/Banner/Banner";
-import { useGetByCategory } from "../../../hooks/useGetByCategory";
 import "./Style.css";
 import PresentationBox from "../../../components/PresentationBox/PresentationBox";
-import ProductList from "../../../components/ProductList/ProductList";
-import CategorySection from "../Components/CategorySection";
 import CategoryList from "../Components/CategoryList";
-import ProductModal from "../../../components/modals/ProductModal";
-import { useState } from "react";
 
 export default function Home() {
-  // const [isModalOpen, setIsModalOpen] = useState(false);
   return (
     <>
       <Banner
@@ -17,7 +11,6 @@ export default function Home() {
         subTitle="Welcome to the Store"
         imgUrl={"assets/banner-home.jpg"}
       />
-      {/* {isModalOpen && <ProductModal />} */}
 
       <div className="container-home">
         <PresentationBox

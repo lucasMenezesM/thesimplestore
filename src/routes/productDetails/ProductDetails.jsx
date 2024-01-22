@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import "./Style.css";
 import { useGetByCategory } from "../../hooks/useGetByCategory";
-import CategorySection from "../Home/Components/CategorySection";
+import CategoryItems from "../Home/Components/CategoryItems";
 import ProductList from "../../components/ProductList/ProductList";
 import Button from "../../components/Button/Button";
 import { findAllInRenderedTree } from "react-dom/test-utils";
@@ -85,9 +85,9 @@ export default function ProductDetails() {
       {isLoadingSimilar ? (
         <h2>Loading Products...</h2>
       ) : (
-        <CategorySection title={"Similar Products"}>
+        <CategoryItems title={"Similar Products"}>
           <ProductList products={similarProducts} />
-        </CategorySection>
+        </CategoryItems>
       )}
     </div>
   );

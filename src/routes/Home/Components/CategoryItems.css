@@ -1,0 +1,49 @@
+.category-title {
+  background-color: #f1f3f5;
+  border-radius: 5px;
+  padding: 50px;
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  height: 150px;
+  position: relative;
+}
+
+.title-label {
+  position: absolute;
+  border: 1px solid black;
+  font-weight: 600;
+  left: 10px;
+  top: -5px;
+  padding: 5px 10px;
+  border-radius: 25px;
+  background-color: #495057;
+  color: white;
+  transition: all 0.4s;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.category-title h3 {
+  font-weight: 800;
+  font-size: 25px;
+  text-align: center;
+}
+
+.category-title p {
+  text-align: center;
+  line-height: 25px;
+}
+
+@media screen and (max-width: 768px) {
+  .category-title {
+    padding: 50px;
+    gap: 10px;
+    height: auto;
+  }
+}
